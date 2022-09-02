@@ -1,0 +1,23 @@
+<html>
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src = "script.js"></script>
+</head>
+
+<body>
+    <div class="row centerAlign color">
+        <input id="input1" type ="text" class="valueInput color border" required pattern="^[0-9]+$"/>
+        <select id ="select" class="selectInput color border">
+            <option value="1">+</option>
+            <option value="2">-</option>
+            <option value="3">*</option>
+            <option value="4">/</option>
+        </select>
+        <input id="input2" type="text" class="valueInput color border" required pattern="^[0-9]+$"/>
+    </div>
+
+    <button class="row button color border" id = "button1" onClick="whenButtonClicked();">вычислить</button>
+
+    <textarea id="results" class="row" style="width: 100%"></textarea>
+</body>
+</html>
