@@ -3,7 +3,7 @@ function whenButtonClicked(){
 
     let selectAction = document.getElementById("select");
     console.log(selectAction.value)
-    
+
     let value1 = document.getElementById("input1").value;
     let value2 = document.getElementById("input2").value;
     
@@ -19,13 +19,15 @@ function whenButtonClicked(){
         result = parseFloat(value1) * parseFloat(value2);
         break;
         case '4':
+            if (parseFloat(value2) === 0) {
+                alert("Делить на 0 нельзя");
+                break;
         result = parseFloat(value1) / parseFloat(value2);
         break;
-
+            }
 
     }
 
     console.log(value1,value2);
     document.getElementById("results").innerText = result;
-    
 }
