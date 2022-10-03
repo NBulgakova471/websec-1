@@ -1,33 +1,42 @@
-
-function whenButtonClicked(){
+function whenButtonClicked() {
 
     let selectAction = document.getElementById("select");
     console.log(selectAction.value)
 
     let value1 = document.getElementById("input1").value;
     let value2 = document.getElementById("input2").value;
-    
+
     var result;
-    switch (selectAction.value){
-        case '1':
-        result = parseFloat(value1) + parseFloat(value2);
-        break;
-        case '2':
-        result = parseFloat(value1) - parseFloat(value2);
-        break;
-        case '3':
-        result = parseFloat(value1) * parseFloat(value2);
-        break;
-        case '4':
-            if (parseFloat(value2) === 0) {
-                alert("Делить на 0 нельзя");
+    if (!value1.matсh(/^/[0 - 9] + $)) {
+        result = "Ошибка: что то кроме цифр присутствует в левом окне ввода!";
+    }
+    else if (!value2.match(/^/[0 - 9] + $)) {
+        result = "Ошибка: что то кроме цифр присутствует в правом окне ввода!";
+    }
+    else {
+        switch (selectAction.value) {
+            case '1':
+                result = parseFloat(value1) + parseFloat(value2);
                 break;
-        result = parseFloat(value1) / parseFloat(value2);
-        break;
-            }
+            case '2':
+                result = parseFloat(value1) - parseFloat(value2);
+                break;
+            case '3':
+                result = parseFloat(value1) * parseFloat(value2);
+                break;
+            case '4':
+                if (Math.abs(value2) < Number.EPSILON) {
+                    alert("Делить на 0 нельзя");
+                    break;
+                }
+                else {
+                    result = parseFloat(value1) / parseFloat(value2);
+                }
+                break;
+        }
 
     }
 
-    console.log(value1,value2);
+    console.log(value1, value2);
     document.getElementById("results").innerText = result;
 }
