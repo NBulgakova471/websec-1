@@ -7,12 +7,15 @@ function whenButtonClicked() {
     let value2 = document.getElementById("input2").value;
 
     var result;
-    if (!value1.matсh(/^/[0 - 9] + $)) {
-        result = "Ошибка: что то кроме цифр присутствует в левом окне ввода!";
+    if (!/^[0-9]+$/.test(value1)) {
+
+        result = "Ошибка: что - то кроме цифр присутствует в левом окне ввода!";
     }
-    else if (!value2.match(/^/[0 - 9] + $)) {
-        result = "Ошибка: что то кроме цифр присутствует в правом окне ввода!";
+    else if (!/^[0-9]+$/.test(value2)) {
+        
+        result = "Ошибка: что - то кроме цифр присутствует в правом окне ввода!";
     }
+
     else {
         switch (selectAction.value) {
             case '1':
